@@ -1,0 +1,50 @@
+.form-cadastro {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-cadastro .form-group {
+  margin-bottom: 20px;
+}
+
+.form-cadastro label {
+  display: block;
+  font-weight: bold;
+  color: #0f1c2f;
+  margin-bottom: 6px;
+}
+
+.form-cadastro input,
+.form-cadastro select,
+.form-cadastro textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
+
+.form-cadastro textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn.salvar {
+  background: #2b6cb0;
+  color: white;
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border: none;
+}
+
+.btn.salvar:hover {
+  background: #2c5282;
+}

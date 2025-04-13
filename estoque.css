@@ -1,0 +1,140 @@
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tabela th,
+.tabela td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.tabela th {
+  background-color: #f0f4f8;
+  color: #0f1c2f;
+  font-weight: 600;
+}
+
+.tabela td {
+  color: #333;
+}
+
+.btn.editar {
+  background-color: #3182ce;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: background 0.3s;
+}
+
+.btn.editar:hover {
+  background-color: #225ea8;
+}
+
+.btn.excluir {
+  background-color: #e53e3e;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn.excluir:hover {
+  background-color: #c53030;
+}
+
+.formulario {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.formulario .form-group {
+  margin-bottom: 20px;
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #0f1c2f;
+}
+
+.formulario input,
+.formulario select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.btn.salvar {
+  background-color: #2b6cb0;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn.salvar:hover {
+  background-color: #225ea8;
+}
+
+.formulario {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.formulario .form-group {
+  margin-bottom: 20px;
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #0f1c2f;
+}
+
+.formulario input,
+.formulario select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.btn.salvar {
+  background-color: #2b6cb0;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn.salvar:hover {
+  background-color: #225ea8;
+}

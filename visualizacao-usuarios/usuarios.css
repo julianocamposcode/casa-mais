@@ -1,0 +1,76 @@
+.topo-tabela {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.topo-tabela button {
+  background-color: #0c4b8c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.topo-tabela input {
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+
+.tabela-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabela-usuarios th,
+.tabela-usuarios td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.tabela-usuarios th {
+  background-color: #0c4b8c;
+  color: white;
+}
+
+.btn-editar,
+.btn-excluir {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.btn-editar {
+  background-color: #f0ad4e;
+  color: white;
+}
+
+.btn-excluir {
+  background-color: #d9534f;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .topo-tabela {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .topo-tabela input {
+    width: 100%;
+  }
+}
