@@ -5,6 +5,8 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
   max-width: 600px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-cadastro .form-group {
@@ -43,6 +45,7 @@
   cursor: pointer;
   transition: background 0.3s;
   border: none;
+  margin: 0 auto;
 }
 
 .btn.salvar:hover {

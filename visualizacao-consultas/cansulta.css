@@ -30,7 +30,7 @@
 }
 
 .styled-table thead {
-  background: #0c4b8c;
+  background: #003366;
   color: white;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .btn.edit {
-  background: #3182ce;
+  background: #ff9900;
   color: white;
 }
 

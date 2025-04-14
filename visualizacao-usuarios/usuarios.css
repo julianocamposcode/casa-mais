@@ -6,7 +6,7 @@
 }
 
 .topo-tabela button {
-  background-color: #0c4b8c;
+  background-color: #003366;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -39,7 +39,7 @@
 }
 
 .tabela-usuarios th {
-  background-color: #0c4b8c;
+  background-color: #003366;
   color: white;
 }
 
@@ -54,12 +54,12 @@
 }
 
 .btn-editar {
-  background-color: #f0ad4e;
+  background-color: #ff9900;
   color: white;
 }
 
 .btn-excluir {
-  background-color: #d9534f;
+  background-color: #e53e3e;
   color: white;
 }
 
