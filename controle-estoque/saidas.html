@@ -16,6 +16,18 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@pnotify/core@5.2.0/dist/PNotify.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@pnotify/core@5.2.0/dist/BrightTheme.css"
+    />
+
+    <!-- JS -->
   </head>
   <body>
     <div class="container">
@@ -314,12 +326,7 @@
         <form class="formulario">
           <div class="form-group">
             <label for="item">Item</label>
-            <select id="item" name="item" required>
-              <option value="" disabled selected>Selecione o item</option>
-              <option value="arroz">Arroz</option>
-              <option value="dipirona">Dipirona</option>
-              <!-- Itens disponíveis no estoque -->
-            </select>
+            <input type="text" placeholder="Digite o nome do produto" />
           </div>
 
           <div class="form-group">
@@ -364,5 +371,22 @@
     </div>
 
     <script src="../assets/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@pnotify/core@5.2.0/dist/PNotify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@pnotify/core@5.2.0/dist/PNotifyMobile.js"></script>
+
+    <script>
+      let form = document.querySelector(".formulario");
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        PNotify.alert({
+          title: "Erro ao registrar saida",
+          text: "Não há quantidade suficiente do produto em estoque",
+          type: "error",
+          delay: 9000,
+          icon: "error",
+        });
+      });
+      let erro = () => {};
+    </script>
   </body>
 </html>
