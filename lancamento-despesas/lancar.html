@@ -239,14 +239,14 @@
           <fieldset class="menu-section">
             <legend>Gestão de Pessoas</legend>
             <div class="dropdown">
-              <button class="dropdown-btn">Usuários</button>
+              <button class="dropdown-btn">Gestão de Usuários</button>
               <div class="dropdown-content">
                 <a href="../visualizacao-usuarios/usuarios.html">Visualizar</a>
                 <a href="../cadastro-usuarios/cadastro.html">Cadastrar</a>
               </div>
             </div>
             <div class="dropdown">
-              <button class="dropdown-btn">Assistidas</button>
+              <button class="dropdown-btn">Gestão de Assistidas</button>
               <div class="dropdown-content">
                 <a href="../visualizacao-assistidas/index.html">Visualizar</a>
                 <a href="../cadastro-assistidas/cadastro.html">Cadastrar</a>
@@ -257,16 +257,16 @@
           <fieldset class="menu-section">
             <legend>Atendimento e Saúde</legend>
             <div class="dropdown">
-              <button class="dropdown-btn">Consultas</button>
+              <button class="dropdown-btn">Gestão de Consultas</button>
               <div class="dropdown-content">
                 <a href="../visualizacao-consultas/consultas.html"
                   >Visualizar</a
                 >
-                <a href="../agendar-consulta/agendar.html">Agendar</a>
+                <a href="../agendar-consulta/agendar.html">Agendar </a>
               </div>
             </div>
             <div class="dropdown">
-              <button class="dropdown-btn">Medicamentos</button>
+              <button class="dropdown-btn">Gestão de Medicamentos</button>
               <div class="dropdown-content">
                 <a href="../visualizacao-medicamentos/medicamentos.html"
                   >Visualizar</a
@@ -279,14 +279,14 @@
           <fieldset class="menu-section">
             <legend>Controle Financeiro</legend>
             <div class="dropdown">
-              <button class="dropdown-btn">Doações</button>
+              <button class="dropdown-btn">Gestão de Doações</button>
               <div class="dropdown-content">
                 <a href="../visualizacao-doacoes/doacoes.html">Visualizar</a>
                 <a href="../cadastro-doacoes/cadastro.html">Cadastrar</a>
               </div>
             </div>
             <div class="dropdown">
-              <button class="dropdown-btn">Despesas</button>
+              <button class="dropdown-btn">Gestão de Despesas</button>
               <div class="dropdown-content">
                 <a href="../visualizacao-despesas/despesas.html">Visualizar</a>
                 <a href="../lancamento-despesas/lancar.html">Lançar</a>
@@ -297,7 +297,7 @@
           <fieldset class="menu-section">
             <legend>Controle de Estoque</legend>
             <div class="dropdown">
-              <button class="dropdown-btn">Estoque</button>
+              <button class="dropdown-btn">Gestão de Estoque</button>
               <div class="dropdown-content">
                 <a href="../controle-estoque/estoque.html">Itens</a>
                 <a href="../controle-estoque/entradas.html">Entradas</a>
@@ -309,20 +309,28 @@
       </aside>
 
       <main class="main-content">
-        <h1>Lançar Despesa</h1>
+        <h1>Gestão de Despesas > Lançar despesa</h1>
 
         <form class="formulario">
           <div class="campo">
             <label for="tipo">Tipo de Despesa:</label>
-            <select id="tipo" name="tipo" required>
-              <option value="">Selecione</option>
-              <option value="alimentação">Alimentação</option>
-              <option value="medicamentos">Medicamentos</option>
-              <option value="manutenção">Manutenção</option>
-              <option value="outros">Outros</option>
-            </select>
+            <input type="text" placeholder="Digite o tipo da despesa" />
           </div>
-
+          <div class="campo">
+            <label for="tipo">Nome:</label>
+            <input type="text" placeholder="Digite o nome  da despesa" />
+          </div>
+          <div class="campo">
+            <label for="quantidade">Quantidade</label>
+            <input
+              type="number"
+              id="quantidade"
+              name="quantidade"
+              placeholder="Digite a quantidade"
+              required
+            />
+          </div>
+        
           <div class="campo">
             <label for="descricao">Descrição:</label>
             <input type="text" id="descricao" name="descricao" required />
@@ -338,7 +346,7 @@
             <input type="date" id="data" name="data" required />
           </div>
 
-          <button type="submit" class="btn salvar">Salvar Despesa</button>
+          <button type="submit" class="btn salvar">Lançar Despesa</button>
         </form>
       </main>
     </div>
