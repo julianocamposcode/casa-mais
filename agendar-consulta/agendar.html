@@ -289,17 +289,7 @@
             </div>
           </fieldset>
 
-          <fieldset class="menu-section">
-            <legend>Controle de Estoque</legend>
-            <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Estoque</button>
-              <div class="dropdown-content">
-                <a href="../controle-estoque/estoque.html">Itens</a>
-                <a href="../controle-estoque/entradas.html">Entradas</a>
-                <a href="../controle-estoque/saidas.html">Saídas</a>
-              </div>
-            </div>
-          </fieldset>
+
         </nav>
       </aside>
 
@@ -348,13 +338,22 @@
               required
             />
           </div>
+          <div class="form-group">
+            <label for="assistida">Natureza do Atendimento:</label>
+            <select id="assistida" name="assistida" required>
+              <option value="">Selecione</option>
+              <option value="1">SUS</option>
+              <option value="2">Particular</option>
+              <!-- Adicione opções dinamicamente -->
+            </select>
+          </div>
 
           <div class="form-group">
             <label for="observacoes">Observações:</label>
             <textarea
               id="observacoes"
               name="observacoes"
-              placeholder="Informações adicionais"
+              placeholder="Informações adicionais (opcional)"
             ></textarea>
           </div>
 
