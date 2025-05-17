@@ -11,9 +11,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <div class="container">
+    <div class="containers">
       <aside class="sidebar">
         <h2 class="logo">
           <svg
@@ -224,88 +230,92 @@
             </g>
           </svg>
         </h2>
-
         <nav class="menu">
           <div class="dropdown">
-            <a href="../index.html"
-              ><button class="dropdown-btn">Dashboard</button></a
-            >
+            <a href="../index.html">
+              <button class="dropdown-btn">Dashboard</button>
+            </a>
           </div>
+
           <fieldset class="menu-section">
             <legend>Gestão de Pessoas</legend>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Usuários</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-usuarios/usuarios.html">Visualizar</a>
-                <a href="../cadastro-usuarios/cadastro.html">Cadastrar</a>
-              </div>
+              <a href="../visualizacao-usuarios/usuarios.html">
+                <button class="dropdown-btn">Gestão de Usuários</button>
+              </a>
             </div>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Assistidas</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-assistidas/index.html">Visualizar</a>
-                <a href="../cadastro-assistidas/cadastro.html">Cadastrar</a>
-              </div>
+              <a href="../visualizacao-assistidas/index.html">
+                <button class="dropdown-btn">Gestão de Assistidas</button>
+              </a>
             </div>
           </fieldset>
 
           <fieldset class="menu-section">
             <legend>Atendimento e Saúde</legend>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Consultas</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-consultas/consultas.html"
-                  >Visualizar</a
-                >
-                <a href="../agendar-consulta/agendar.html">Agendar </a>
-              </div>
+              <a href="../visualizacao-consultas/consultas.html">
+                <button class="dropdown-btn">Gestão de Consultas</button>
+              </a>
             </div>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Medicamentos</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-medicamentos/medicamentos.html"
-                  >Visualizar</a
-                >
-                <a href="../cadastro-medicamentos/cadastro.html">Cadastrar</a>
-              </div>
+              <a href="../visualizacao-medicamentos/medicamentos.html">
+                <button class="dropdown-btn">Gestão de Medicamentos</button>
+              </a>
             </div>
           </fieldset>
 
           <fieldset class="menu-section">
             <legend>Controle Financeiro</legend>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Doações</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-doacoes/doacoes.html">Visualizar</a>
-                <a href="../cadastro-doacoes/cadastro.html">Cadastrar</a>
-              </div>
+              <a href="../visualizacao-doacoes/doacoes.html">
+                <button class="dropdown-btn">Gestão de Doações</button>
+              </a>
             </div>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Despesas</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-despesas/despesas.html">Visualizar</a>
-                <a href="../lancamento-despesas/lancar.html">Lançar</a>
-              </div>
+              <a href="../visualizacao-despesas/despesas.html">
+                <button class="dropdown-btn">Gestão de Despesas</button>
+              </a>
             </div>
           </fieldset>
-
-          
         </nav>
       </aside>
 
       <main class="main-content">
-        <h1>Gestão de Consultas > Visualização de consultas</h1>
-
-        <div class="filters">
-          <label for="status">Filtrar por Status:</label>
-          <select id="status" name="status">
-            <option value="todas">Todas</option>
-            <option value="pendente">Pendente</option>
-            <option value="realizada">Realizada</option>
-            <option value="cancelada">Cancelada</option>
-          </select>
+        <h1>Gestão de Consultas</h1>
+        <div class="d-flex justify-content-between align-items-center">
+          <button
+            type="button"
+            class="btn btn-salvar"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            Agendar Consulta
+          </button>
+          <div class="filtros">
+            <div>
+              <label for="filtro-status">Filtrar por status:</label>
+              <select id="filtro-status">
+                <option value="">Todos</option>
+                <option value="ativa">Pendente</option>
+                <option value="inativa">Realizada</option>
+                <option value="tratamento">Cancelada</option>
+              </select>
+            </div>
+            <input
+              type="text"
+              id="filtroUsuario"
+              placeholder="Filtrar por Profissional..."
+              oninput="filtrarUsuarios()"
+            />
+          </div>
         </div>
-
         <table class="styled-table">
           <thead>
             <tr>
@@ -327,6 +337,15 @@
               <td>
                 <button class="btn edit">Editar</button>
                 <button class="btn delete">Excluir</button>
+
+                <button
+                  type="button"
+                  class="btn presc"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop2"
+                >
+                  Lançar Prescrição
+                </button>
               </td>
             </tr>
             <tr>
@@ -338,6 +357,14 @@
               <td>
                 <button class="btn edit">Editar</button>
                 <button class="btn delete">Excluir</button>
+                <button
+                  type="button"
+                  class="btn presc"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop3"
+                >
+                  Ver Prescrição
+                </button>
               </td>
             </tr>
             <tr>
@@ -349,14 +376,427 @@
               <td>
                 <button class="btn edit">Editar</button>
                 <button class="btn delete">Excluir</button>
+                <button
+                  type="button"
+                  class="btn presc"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop2"
+                >
+                  Lançar Prescrição
+                </button>
               </td>
             </tr>
-            <!-- Outras consultas aqui -->
           </tbody>
         </table>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="staticBackdrop"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header align border-0">
+                <h1
+                  class="modal-title fs-5"
+                  id="staticBackdropLabel"
+                  style="margin-bottom: 0"
+                >
+                  Agendamento de Consulta
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body formulario">
+                <form
+                  class="form-cadastro d-flex justify-content-center flex-column"
+                >
+                  <div class="form-group col-md-12">
+                    <label for="assistida">Assistida:</label>
+                    <select id="assistida" name="assistida" required>
+                      <option value="">Selecione</option>
+                      <option value="1">Maria da Silva</option>
+                      <option value="2">Joana Souza</option>
+                      <!-- Adicione opções dinamicamente -->
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profissional">Profissional:</label>
+                    <input
+                      type="text"
+                      id="profissional"
+                      name="profissional"
+                      placeholder="Nome do médico ou especialista"
+                      required
+                    />
+                  </div>
+                  <div class="d-flex">
+                    <div class="form-group col-md-7">
+                      <label for="data">Data:</label>
+                      <input type="date" id="data" name="data" required />
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label for="hora">Hora:</label>
+                      <input type="time" id="hora" name="hora" required />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="local">Local:</label>
+                    <input
+                      type="text"
+                      id="local"
+                      name="local"
+                      placeholder="Nome do hospital, clínica, etc."
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="assistida">Natureza do Atendimento:</label>
+                    <select id="assistida" name="assistida" required>
+                      <option value="">Selecione</option>
+                      <option value="1">SUS</option>
+                      <option value="2">Particular</option>
+                      <!-- Adicione opções dinamicamente -->
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea
+                      id="observacoes"
+                      name="observacoes"
+                      placeholder="Informações adicionais (opcional)"
+                    ></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer border-0">
+                <button
+                  type="button"
+                  class="btn btn-cancelar"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <button type="button" class="btn btn-salvar">Agendar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal prescrição -->
+
+        <div
+          class="modal fade"
+          id="staticBackdrop2"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header align border-0">
+                <h1
+                  class="modal-title fs-5"
+                  id="staticBackdropLabel"
+                  style="margin-bottom: 0"
+                >
+                  Lançamento de Prescrição do Especialista
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body formulario">
+                <form class="form-cadastro">
+                  <!-- Seleção da Assistida -->
+                  <div class="form-group">
+                    <label for="assistida">Assistida:</label>
+                    <select
+                      id="assistida"
+                      name="assistida"
+                      required
+                      onchange="carregarConsultas(this.value)"
+                    >
+                      <option value="">Selecione</option>
+                      <option value="1">Maria da Silva</option>
+                      <option value="2">Ana Souza</option>
+                      <!-- As assistidas reais podem ser carregadas via JavaScript/API -->
+                    </select>
+                  </div>
+
+                  <!-- Seleção da Consulta Vinculada -->
+                  <div class="form-group">
+                    <label for="consulta">Consulta Vinculada:</label>
+                    <select id="consulta" name="consulta" required>
+                      <option value="">Selecione uma consulta</option>
+                      <!-- As opções serão carregadas dinamicamente -->
+                    </select>
+                  </div>
+
+                  <!-- Nome do Medicamento -->
+                  <div class="form-group">
+                    <label for="nome">Nome do Medicamento:</label>
+                    <input
+                      type="text"
+                      id="nome"
+                      name="nome"
+                      placeholder="Ex: Dipirona, Ibuprofeno"
+                      required
+                    />
+                  </div>
+
+                  <!-- Forma Farmacêutica -->
+                  <div class="form-group">
+                    <label for="forma">Forma Farmacêutica:</label>
+                    <select id="forma" name="forma" required>
+                      <option value="">Selecione</option>
+                      <option value="Comprimido">Comprimido</option>
+                      <option value="Cápsula">Cápsula</option>
+                      <option value="Gotas">Gotas</option>
+                      <option value="Xarope">Xarope</option>
+                      <option value="Pomada">Pomada</option>
+                      <option value="Injetável">Injetável</option>
+                    </select>
+                  </div>
+
+                  <!-- Dosagem -->
+                  <div class="d-flex flex-row align-items-center">
+                    <div class="form-group col-md-5">
+                      <label for="dosagem">Dosagem:</label>
+                      <input
+                        type="text"
+                        id="dosagem"
+                        name="dosagem"
+                        placeholder="Ex: 500mg, 10ml"
+                        required
+                      />
+                    </div>
+
+                    <!-- Data de Validade -->
+                    <div class="form-group col-md-6">
+                      <label for="validade">Data de Validade:</label>
+                      <input
+                        type="date"
+                        id="validade"
+                        name="validade"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Observações -->
+                  <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea
+                      id="observacoes"
+                      name="observacoes"
+                      placeholder="Instruções adicionais, frequência, etc."
+                    ></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer border-0">
+                <button
+                  type="button"
+                  class="btn btn-cancelar"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <button type="button" class="btn btn-salvar">
+                  Lançar Prescrição
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- visualizaçao -->
+        <div
+          class="modal fade"
+          id="staticBackdrop3"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header align border-0">
+                <h1
+                  class="modal-title fs-5"
+                  id="staticBackdropLabel"
+                  style="margin-bottom: 0"
+                >
+                  Visualizacao de Prescrição
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body formulario">
+                <form class="form-cadastro">
+                  <!-- Seleção da Assistida -->
+                  <div class="form-group">
+                    <label for="assistida">Assistida:</label>
+                    <select
+                      id="assistida"
+                      name="assistida"
+                      disabled
+                      onchange="carregarConsultas(this.value)"
+                    >
+                      <option value="">Selecione</option>
+                      <option value="1" selected>Maria Andrade</option>
+                      <option value="2">Ana Souza</option>
+                      <!-- As assistidas reais podem ser carregadas via JavaScript/API -->
+                    </select>
+                  </div>
+                  
+                  <!-- Seleção da Consulta Vinculada -->
+                  <div class="form-group">
+                    <label for="consulta">Consulta Vinculada:</label>
+                    <select id="consulta" name="consulta" disabled>
+                      <option value="" >18/04/2025 - Dr. Rafael Costa - SUS</option>
+        
+                      <!-- As opções serão carregadas dinamicamente -->
+                    </select>
+                  </div>
+
+                  <!-- Nome do Medicamento -->
+                  <div class="form-group">
+                    <label for="nome">Nome do Medicamento:</label>
+                    <input
+                      type="text"
+                      id="nome"
+                      name="nome"
+                      placeholder="Ex: Dipirona, Ibuprofeno"
+                      value="Ibuprofeno"
+                      disabled
+                    />
+                  </div>
+
+                  <!-- Forma Farmacêutica -->
+                  <div class="form-group">
+                    <label for="forma">Forma Farmacêutica:</label>
+                    <select id="forma" name="forma" disabled>
+                      <option value="">Selecione</option>
+                      <option value="Comprimido">Comprimido</option>
+                      <option value="Cápsula" selected>Cápsula</option>
+                      <option value="Gotas">Gotas</option>
+                      <option value="Xarope">Xarope</option>
+                      <option value="Pomada">Pomada</option>
+                      <option value="Injetável">Injetável</option>
+                    </select>
+                  </div>
+
+                  <!-- Dosagem -->
+                  <div class="d-flex flex-row align-items-center">
+                    <div class="form-group col-md-5">
+                      <label for="dosagem">Dosagem:</label>
+                      <input
+                        type="text"
+                        id="dosagem"
+                        name="dosagem"
+                        placeholder="Ex: 500mg, 10ml"
+                        disabled
+                        value="200 mg"
+                      />
+                    </div>
+
+                    <!-- Data de Validade -->
+                    <div class="form-group col-md-6">
+                      <label for="validade">Data de Validade:</label>
+                      <input
+                        type="date"
+                        id="validade"
+                        name="validade"
+                        disabled
+                        value="2026-04-10"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Observações -->
+                  <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea
+                    disabled
+                      id="observacoes"
+                      name="observacoes"
+                      placeholder="Instruções adicionais, frequência, etc."
+                      value="Administrar após as refeições para evitar irritação gástrica."
+                    >Administrar após as refeições para evitar irritação gástrica.</textarea>
+                  </div>
+                </form>
+              </div>
+              <!-- <div class="modal-footer border-0">
+                <button
+                  type="button"
+                  class="btn btn-cancelar"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <button type="button" class="btn btn-salvar">Agendar</button>
+              </div> -->
+            </div>
+          </div>
+        </div>
       </main>
     </div>
 
     <script src="../assets/script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Exemplo de consultas por assistida
+      const consultas = {
+        1: [
+          { id: 101, texto: "10/05/2025 - Dr. João - SUS" },
+          { id: 102, texto: "20/04/2025 - Dra. Carla - Particular" },
+        ],
+        2: [{ id: 103, texto: "01/03/2025 - Dr. Pedro - SUS" }],
+      };
+
+      function carregarConsultas(assistidaId) {
+        const selectConsulta = document.getElementById("consulta");
+        selectConsulta.innerHTML =
+          '<option value="">Selecione uma consulta</option>';
+
+        if (consultas[assistidaId]) {
+          consultas[assistidaId].forEach((c) => {
+            const opt = document.createElement("option");
+            opt.value = c.id;
+            opt.textContent = c.texto;
+            selectConsulta.appendChild(opt);
+          });
+        }
+      }
+    </script>
   </body>
 </html>

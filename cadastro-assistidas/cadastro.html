@@ -291,14 +291,14 @@
               </div>
             </div>
           </fieldset>
-
-          
         </nav>
       </aside>
 
       <!-- CONTEÚDO PRINCIPAL -->
       <main class="main-content">
-        <h1 style="color: black;">Gestão de Assistidas > Cadastro de Assistida</h1>
+        <h1 style="color: black">
+          Gestão de Assistidas > Cadastro de Assistida
+        </h1>
 
         <form class="formulario-assistida">
           <fieldset>
@@ -494,3 +494,160 @@
   </body>
   <script src="../assets/script.js"></script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal-header align border-0">
+  <h1
+    class="modal-title fs-5"
+    id="staticBackdropLabel"
+    style="margin-bottom: 0"
+  >
+    Cadastro de Assistida
+  </h1>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+  ></button>
+</div>
+<div class="modal-body formulario">
+  <form class="formulario-assistida">
+    <fieldset>
+      <legend>Dados Pessoais I</legend>
+      <div class="grupo-form">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" required />
+      </div>
+
+      <div class="grupo-form">
+        <label for="idade">Idade</label>
+        <input type="number" id="idade" name="idade" required />
+      </div>
+
+      <div class="grupo-form">
+        <label for="telefone">Telefone</label>
+        <input
+          type="tel"
+          id="telefone"
+          name="telefone"
+          placeholder="(xx) xxxxx-xxxx"
+        />
+      </div>
+
+      <div class="grupo-form">
+        <label for="endereco">Endereço</label>
+        <input type="text" id="endereco" name="endereco" />
+      </div>
+
+      <div class="grupo-form">
+        <label for="status">Status</label>
+        <select id="status" name="status">
+          <option value="Ativa">Ativa</option>
+          <option value="Inativa">Inativa</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Histórico Clínico</legend>
+      <label>Data do Atendimento:</label>
+      <input type="date" name="data_atendimento" />
+
+      <label>Hora:</label>
+      <input type="time" name="hora" />
+
+      <label>História Patológica Regressa:</label>
+      <textarea name="historia_patologica"></textarea>
+
+      <label>Quanto Tempo Sem Uso:</label>
+      <input type="text" name="tempo_sem_uso" />
+
+      <label>Já esteve internado?</label>
+      <select name="internado">
+        <option value="">Selecione</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+
+      <label>Quantas vezes?</label>
+      <input type="number" name="quantidade_internacoes" />
+
+      <h4>Uso de Drogas/Bebidas</h4>
+      <table class="tabela-drogas">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Idade Início</th>
+            <th>Tempo de Uso</th>
+            <th>Intensidade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="droga1_tipo" /></td>
+            <td><input type="text" name="droga1_idade" /></td>
+            <td><input type="text" name="droga1_tempo" /></td>
+            <td>
+              <input type="text" name="droga1_intensidade" />
+            </td>
+          </tr>
+          <tr>
+            <td><input type="text" name="droga2_tipo" /></td>
+            <td><input type="text" name="droga2_idade" /></td>
+            <td><input type="text" name="droga2_tempo" /></td>
+            <td>
+              <input type="text" name="droga2_intensidade" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <label>Locais e Datas de Internações:</label>
+      <input type="text" name="local1" placeholder="Local 1" />
+      <input type="text" name="duracao1" placeholder="Duração" />
+      <input type="date" name="data1" />
+
+      <input type="text" name="local2" placeholder="Local 2" />
+      <input type="text" name="duracao2" placeholder="Duração" />
+      <input type="date" name="data2" />
+
+      <input type="text" name="local3" placeholder="Local 3" />
+      <input type="text" name="duracao3" placeholder="Duração" />
+      <input type="date" name="data3" />
+
+      <label>Motivação das Internações:</label>
+      <textarea name="motivacao_internacoes"></textarea>
+
+      
+
+      <label>Usa medicamentos?</label>
+      <select name="uso_medicamentos">
+        <option value="">Selecione</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+
+      <label>Se sim, quais:</label>
+      <input type="text" name="quais_medicamentos" />
+
+      <label>Fatos marcantes:</label>
+      <textarea name="fatos_marcantes"></textarea>
+
+      <label>Infância:</label>
+      <textarea name="infancia"></textarea>
+
+      <label>Adolescência:</label>
+      <textarea name="adolescencia"></textarea>
+    </fieldset>
+  </form>
+</div>

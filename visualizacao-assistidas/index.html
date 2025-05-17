@@ -3,12 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visualizar Assistidas</title>
+    <title>Gestão de Assistidas</title>
     <link rel="stylesheet" href="../dashboard/estilo-dashboard.css" />
     <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <div class="container">
+    <div class="containers">
       <!-- MENU LATERAL -->
       <aside class="sidebar">
         <a href="../dashboard/index.html">
@@ -225,100 +231,106 @@
 
         <nav class="menu">
           <div class="dropdown">
-            <a href="../index.html"
-              ><button class="dropdown-btn">Dashboard</button></a
-            >
+            <a href="../index.html">
+              <button class="dropdown-btn">Dashboard</button>
+            </a>
           </div>
+
           <fieldset class="menu-section">
             <legend>Gestão de Pessoas</legend>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Usuários</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-usuarios/usuarios.html">Visualizar</a>
-                <a href="../cadastro-usuarios/cadastro.html">Cadastrar</a>
-              </div>
+              <a href="../visualizacao-usuarios/usuarios.html">
+                <button class="dropdown-btn">Gestão de Usuários</button>
+              </a>
             </div>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Assistidas</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-assistidas/index.html">Visualizar</a>
-                <a href="../cadastro-assistidas/cadastro.html">Cadastrar</a>
-              </div>
+              <a href="../visualizacao-assistidas/index.html">
+                <button class="dropdown-btn">Gestão de Assistidas</button>
+              </a>
             </div>
           </fieldset>
 
           <fieldset class="menu-section">
             <legend>Atendimento e Saúde</legend>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Consultas</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-consultas/consultas.html"
-                  >Visualizar</a
-                >
-                <a href="../agendar-consulta/agendar.html">Agendar </a>
-              </div>
+              <a href="../visualizacao-consultas/consultas.html">
+                <button class="dropdown-btn">Gestão de Consultas</button>
+              </a>
             </div>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Medicamentos</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-medicamentos/medicamentos.html"
-                  >Visualizar</a
-                >
-                <a href="../cadastro-medicamentos/cadastro.html">Cadastrar</a>
-              </div>
+              <a href="../visualizacao-medicamentos/medicamentos.html">
+                <button class="dropdown-btn">Gestão de Medicamentos</button>
+              </a>
             </div>
           </fieldset>
 
           <fieldset class="menu-section">
             <legend>Controle Financeiro</legend>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Doações</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-doacoes/doacoes.html">Visualizar</a>
-                <a href="../cadastro-doacoes/cadastro.html">Cadastrar</a>
-              </div>
+              <a href="../visualizacao-doacoes/doacoes.html">
+                <button class="dropdown-btn">Gestão de Doações</button>
+              </a>
             </div>
+
             <div class="dropdown">
-              <button class="dropdown-btn">Gestão de Despesas</button>
-              <div class="dropdown-content">
-                <a href="../visualizacao-despesas/despesas.html">Visualizar</a>
-                <a href="../lancamento-despesas/lancar.html">Lançar</a>
-              </div>
+              <a href="../visualizacao-despesas/despesas.html">
+                <button class="dropdown-btn">Gestão de Despesas</button>
+              </a>
             </div>
           </fieldset>
-
-          
         </nav>
       </aside>
 
       <!-- CONTEÚDO PRINCIPAL -->
       <main class="main-content">
         <div class="topo">
-          <h1>Gestão de Assistidas > Visualização de assistidas</h1>
+          <h1>Gestão de Assistidas</h1>
           <p>
-            Visualização estruturada das assistidas cadastradas, permitindo
-            consulta rápida de informações essenciais e acesso a detalhes
-            individuais
+            Gerencie os dados completos das assistidas, incluindo dados
+            pessoais, endereço e contatos emergenciais.
           </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <button
+              type="button"
+              class="btn btn-salvar"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Cadastrar Assistida
+            </button>
+            <div class="filtros">
+              <div>
+                <label for="filtro-status">Filtrar por status:</label>
+                <select id="filtro-status">
+                  <option value="">Todos</option>
+                  <option value="ativa">Ativa</option>
+                  <option value="inativa">Inativa</option>
+                  <option value="tratamento">Em Tratamento</option>
+                </select>
+              </div>
+              <input
+                type="text"
+                id="filtroUsuario"
+                placeholder="Filtrar por CPF..."
+                oninput="filtrarUsuarios()"
+              />
+            </div>
+          </div>
         </div>
 
-        <div class="filtros">
-          <label for="filtro-status">Filtrar por status:</label>
-          <select id="filtro-status">
-            <option value="">Todos</option>
-            <option value="ativa">Ativa</option>
-            <option value="inativa">Inativa</option>
-            <option value="tratamento">Em Tratamento</option>
-          </select>
-        </div>
-
+        <!-- Tabela -->
         <div class="tabela-container">
           <table class="tabela-assistidas">
             <thead>
               <tr>
                 <th>Nome</th>
+                <th>CPF</th>
                 <th>Idade</th>
-                <th>Telefone</th>
                 <th>Status</th>
                 <th>Ações</th>
               </tr>
@@ -326,69 +338,438 @@
             <tbody>
               <tr>
                 <td>Maria Silva</td>
+                <td>123.456.789-00</td>
                 <td>32</td>
-                <td>(11) 99999-9999</td>
                 <td><span class="status ativa">Ativa</span></td>
                 <td>
                   <button class="botao detalhes">Detalhes</button>
                   <button class="botao editar">Editar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Joana Gomes</td>
-                <td>45</td>
-                <td>(11) 98888-8888</td>
-                <td><span class="status tratamento">Em Tratamento</span></td>
-                <td>
-                  <button class="botao detalhes">Detalhes</button>
-                  <button class="botao editar">Editar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Maria Andrade</td>
-                <td>42</td>
-                <td>(11) 98877-7711</td>
-                <td><span class="status inativa">Inativa</span></td>
-                <td>
-                  <button class="botao detalhes">Detalhes</button>
-                  <button class="botao editar">Editar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Maria Lúcia</td>
-                <td>53</td>
-                <td>(11) 98877-7711</td>
-                <td><span class="status ativa">Ativa</span></td>
-                <td>
-                  <button class="botao detalhes">Detalhes</button>
-                  <button class="botao editar">Editar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Eloísa Silveira</td>
-                <td>38</td>
-                <td>(11) 98877-7711</td>
-                <td><span class="status tratamento">Em Tratamento</span></td>
-                <td>
-                  <button class="botao detalhes">Detalhes</button>
-                  <button class="botao editar">Editar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Rita Ribeiro</td>
-                <td>41</td>
-                <td>(11) 98877-7711</td>
-                <td><span class="status inativa">Inativa</span></td>
-                <td>
-                  <button class="botao detalhes">Detalhes</button>
-                  <button class="botao editar">Editar</button>
+                  <button class="botao excluir">Excluir</button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="staticBackdrop"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-fullscreen" style="height: 123vh">
+            <div class="modal-content">
+              <div class="modal-header align border-0">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="container">
+                <div class="card">
+                  <div class="card-header text-white azul">
+                    Cadastro de Assistida
+                  </div>
+                  <div class="card-body">
+                    <!-- Etapas visuais numeradas -->
+                    <div class="step-indicator mb-4">
+                      <div class="step active" data-step="1">
+                        Dados Pessoais
+                      </div>
+                      <div class="step" data-step="2">
+                        Informações de Contato e Endereço
+                      </div>
+                      <div class="step" data-step="3">
+                        História Patológica Regressa I
+                      </div>
+                      <div class="step" data-step="4">
+                        História Patológica Regressa II
+                      </div>
+                    </div>
+                    <form id="assistidaForm" class="formulario-assistida">
+                      <!-- Etapa 1 -->
+                      <fieldset class="etapa-1 form-step active">
+                        <section class="dados-etapa">
+                          <legend>Dados Pessoais</legend>
+                          <div class="grupo-form">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required />
+                          </div>
+                          <div class="grupo-form">
+                            <label>CPF:</label>
+                            <input type="text" name="cpf" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>RG:</label>
+                            <input type="text" name="rg" />
+                          </div>
+                          <div class="grupo-form">
+                            <label for="idade">Idade:</label>
+                            <input
+                              type="number"
+                              id="idade"
+                              name="idade"
+                              required
+                            />
+                          </div>
+
+                          <div class="grupo-form">
+                            <label for="data-nasc">Data de Nascimento:</label>
+                            <input
+                              type="date"
+                              id="data-nasc"
+                              name="data_nascimento"
+                            />
+                          </div>
+
+                          <div class="grupo-form">
+                            <label id="nacionalidade">Nacionalidade:</label>
+                            <input
+                              type="text"
+                              id="nacionalidade"
+                              name="nacionalidade"
+                            />
+                          </div>
+
+                          <div class="grupo-form">
+                            <label>Estado Civil:</label>
+                            <input type="text" name="estado_civil" />
+                          </div>
+
+                          <div class="grupo-form">
+                            <label>Profissão:</label>
+                            <input type="text" name="profissao" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>Grau de Escolaridade:</label>
+                            <input type="text" name="escolaridade" />
+                          </div>
+                        </section>
+                        <div class="buto">
+                          <button
+                            type="button"
+                            class="btn btn-salvar"
+                            onclick="nextStep()"
+                          >
+                            Próximo
+                          </button>
+                        </div>
+                      </fieldset>
+                      <!-- Etapa 2 -->
+                      <fieldset class="form-step">
+                        <section class="dados-etapa">
+                          <legend>Informações de Contato e Endereço</legend>
+                          <div class="grupo-form">
+                            <label>Endereço:</label>
+                            <input type="text" name="endereco" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>Logradouro:</label>
+                            <input type="text" name="logradouro" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>Bairro:</label>
+                            <input type="text" name="logradouro" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>Número:</label>
+                            <input type="text" name="logradouro" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>CEP:</label>
+                            <input type="text" name="logradouro" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>Estado:</label>
+                            <input type="text" name="logradouro" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>Cidade:</label>
+                            <input type="text" name="logradouro" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>Telefone:</label>
+                            <input type="text" name="logradouro" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>Telefones para Contato:</label>
+                            <input type="text" name="logradouro" />
+                            <input type="text" name="logradouro" />
+                          </div>
+                        </section>
+                        <div class="buto">
+                          <button
+                            type="button"
+                            class="btn btn-cancelar"
+                            onclick="prevStep()"
+                          >
+                            Voltar
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-salvar"
+                            onclick="nextStep()"
+                          >
+                            Próximo
+                          </button>
+                        </div>
+                      </fieldset>
+
+                      <!-- Etapa 3 -->
+                      <fieldset class="form-step">
+                        <section class="dados-etapa">
+                          <legend>Condição Atual e Uso de Substâncias</legend>
+                          <div class="grupo-form col-md-2">
+                            <label>Data do Atendimento:</label>
+                            <input type="date" name="data_atendimento" />
+                          </div>
+                          <div class="grupo-form">
+                            <label>Hora:</label>
+                            <input type="time" name="hora" />
+                          </div>
+
+                          <div class="grupo-form col-md-6">
+                            <label>História Patológica Regressa:</label>
+                            <textarea name="historia_patologica"></textarea>
+                          </div>
+                          <div class="grupo-form">
+                            <label>Quanto Tempo Sem Uso:</label>
+                            <input type="text" name="tempo_sem_uso" />
+                          </div>
+
+                          <div class="grupo-form">
+                            <h4>Uso de Drogas/Bebidas</h4>
+                            <table class="tabela-drogas col-md-6">
+                              <thead>
+                                <tr>
+                                  <th>Tipo</th>
+                                  <th>Idade Início</th>
+                                  <th>Tempo de Uso</th>
+                                  <th>Intensidade</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <input type="text" name="droga1_tipo" />
+                                  </td>
+                                  <td>
+                                    <input type="text" name="droga1_idade" />
+                                  </td>
+                                  <td>
+                                    <input type="text" name="droga1_tempo" />
+                                  </td>
+                                  <td>
+                                    <input
+                                      type="text"
+                                      name="droga1_intensidade"
+                                    />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <input type="text" name="droga2_tipo" />
+                                  </td>
+                                  <td>
+                                    <input type="text" name="droga2_idade" />
+                                  </td>
+                                  <td>
+                                    <input type="text" name="droga2_tempo" />
+                                  </td>
+                                  <td>
+                                    <input
+                                      type="text"
+                                      name="droga2_intensidade"
+                                    />
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="grupo-form">
+                            <label>Usa medicamentos?</label>
+                            <select name="uso_medicamentos">
+                              <option value="">Selecione</option>
+                              <option value="sim">Sim</option>
+                              <option value="nao">Não</option>
+                            </select>
+                            <label>Se sim, quais:</label>
+                            <input type="text" name="quais_medicamentos" />
+                          </div>
+                        </section>
+                        <div class="buto">
+                          <button
+                            type="button"
+                            class="btn btn-cancelar"
+                            onclick="prevStep()"
+                          >
+                            Voltar
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-salvar"
+                            onclick="nextStep()"
+                          >
+                            Próximo
+                          </button>
+                        </div>
+                      </fieldset>
+
+                      <!-- Etapa 4 -->
+                      <fieldset class="form-step">
+                        <section class="dados-etapa">
+                          <legend>Internações Anteriores e Vida Pessoal</legend>
+
+                          <div class="grupo-form col-md-4">
+                            <label>Já esteve internado?</label>
+                            <select name="internado">
+                              <option value="">Selecione</option>
+                              <option value="sim">Sim</option>
+                              <option value="nao">Não</option>
+                            </select>
+                            <!-- </div>
+                            <div class="grupo-form"> -->
+                            <label>Quantas vezes?</label>
+                            <input
+                              type="number"
+                              name="quantidade_internacoes"
+                            />
+                          </div>
+
+                          <div class="grupo-form col-md-6">
+                            <label>Locais e Datas de Internações:</label>
+                            <div>
+                              <input
+                                type="text"
+                                name="local1"
+                                placeholder="Local 1"
+                              />
+                              <input
+                                type="text"
+                                name="duracao1"
+                                placeholder="Duração"
+                              />
+                              <input type="date" name="data1" />
+                            </div>
+
+                            <div>
+                              <input
+                                type="text"
+                                name="local2"
+                                placeholder="Local 2"
+                              />
+                              <input
+                                type="text"
+                                name="duracao2"
+                                placeholder="Duração"
+                              />
+                              <input type="date" name="data2" />
+                            </div>
+                            <div>
+                              <input
+                                type="text"
+                                name="local3"
+                                placeholder="Local 3"
+                              />
+                              <input
+                                type="text"
+                                name="duracao3"
+                                placeholder="Duração"
+                              />
+                              <input type="date" name="data3" />
+                            </div>
+                          </div>
+
+                          <div class="grupo-form col-md-3">
+                            <label>Motivação das Internações:</label>
+                            <textarea name="motivacao_internacoes"></textarea>
+                          </div>
+                          <div class="grupo-form col-md-2">
+                            <label>Fatos marcantes:</label>
+                            <textarea name="fatos_marcantes"></textarea>
+                          </div>
+                          <div class="grupo-form col-md-3">
+                            <label>Infância:</label>
+                            <textarea name="infancia"></textarea>
+                          </div>
+                          <div class="grupo-form col-md-3">
+                            <label>Adolescência:</label>
+                            <textarea name="adolescencia"></textarea>
+                          </div>
+                        </section>
+                        <div class="buto">
+                          <button
+                            type="button"
+                            class="btn btn-cancelar"
+                            onclick="prevStep()"
+                          >
+                            Voltar
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-salvar"
+                            onclick="nextStep()"
+                          >
+                            Finalizar Cadastro
+                          </button>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   </body>
+
   <script src="../assets/script.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    let currentStep = 0;
+    const steps = document.querySelectorAll(".form-step");
+    const indicators = document.querySelectorAll(".step-indicator .step");
+
+    function showStep(step) {
+      steps.forEach((el, i) => {
+        el.classList.toggle("active", i === step);
+      });
+      indicators.forEach((el, i) => {
+        el.classList.toggle("active", i === step);
+      });
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    }
+
+    document
+      .getElementById("assistidaForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Assistida cadastrada com sucesso!");
+      });
+  </script>
 </html>

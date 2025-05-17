@@ -5,7 +5,7 @@
   margin-bottom: 20px;
 }
 
-.topo-tabela button {
+/* .topo-tabela button {
   background-color: #003366;
   color: white;
   border: none;
@@ -13,7 +13,7 @@
   border-radius: 8px;
   font-size: 15px;
   cursor: pointer;
-}
+} */
 
 .topo-tabela input {
   padding: 8px 15px;
@@ -61,6 +61,65 @@
 .btn-excluir {
   background-color: #e53e3e;
   color: white;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: auto;
+  height: 2.5rem;
+}
+
+.form-group select {
+  padding: 7px;
+}
+
+.botoes-form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-salvar {
+  background-color: #0c4b8c!important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: none;
+}
+
+.btn-cancelar {
+  background-color: #6c757d!important;
+  color: white!important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {

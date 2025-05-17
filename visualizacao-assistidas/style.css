@@ -17,8 +17,18 @@
   line-height: 160%;
 }
 
+#filtroUsuario {
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+
 .filtros {
   margin-bottom: 20px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .filtros label {
@@ -57,7 +67,7 @@
 .tabela-assistidas th {
   background-color: #003366;
   color: #fff;
-  
+
   font-weight: 600;
 }
 
@@ -66,7 +76,7 @@
 }
 
 .botao {
-  padding: 6px 12px;
+  padding: 3px 12px;
   margin-right: 5px;
   border: none;
   border-radius: 6px;
@@ -113,4 +123,265 @@
 .status.tratamento {
   background-color: #bee3f8;
   color: #2b6cb0;
+}
+
+/* CSS CADASTRO */
+
+.btn-salvar {
+  background-color: #0c4b8c !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: none;
+}
+
+.btn-cancelar {
+  background-color: #6c757d !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.formulario-assistida {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px; */
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.grupo-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.grupo-form label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #0f1c2f;
+}
+
+.grupo-form input,
+.grupo-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline-color: #0c4b8c;
+}
+
+button[type="submit"] {
+  margin-top: 10px;
+}
+
+/* Área principal */
+
+/* Título */
+
+/* Formulário */
+.form-cadastro-assistida {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Fieldsets */
+form fieldset {
+  border: none;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+form legend {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0c2e5c;
+  margin-bottom: 10px;
+}
+
+/* Labels e Inputs */
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #0c4b8c;
+  outline: none;
+}
+
+/* Textareas */
+form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Tabela de Drogas */
+.tabela-drogas {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+.tabela-drogas th,
+.tabela-drogas td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.tabela-drogas th {
+  background-color: #e4effc;
+  color: #0c2e5c;
+}
+
+/* Botão */
+form button[type="submit"] {
+  background-color: #0c4b8c;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+  background-color: #09386a;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .form-cadastro-assistida {
+    padding: 20px;
+  }
+
+  .tabela-drogas th,
+  .tabela-drogas td {
+    font-size: 14px;
+    padding: 6px;
+  }
+}
+
+/* CSS FORM EM EATAPAS  */
+.excluir {
+  background-color: #e53e3e;
+
+  color: white;
+}
+.etapa-1 {
+  display: flex;
+  flex-direction: column;
+}
+.buto {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+.dados-etapa {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.form-step {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.form-step.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.step-indicator .step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  color: #ccc;
+}
+
+.step-indicator .step.active {
+  font-weight: bold;
+  color: #0c4b8c;
+}
+.azul {
+  background-color: #0c4b8c !important;
+  color: white !important;
+}
+
+.step-indicator .step::before {
+  content: attr(data-step);
+  display: inline-block;
+  background-color: #ccc;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 8px;
+}
+
+.step-indicator .step.active::before {
+  background-color: #0c4b8c;
+}
+
+.formulario-assistida fieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: 2rem;
 }

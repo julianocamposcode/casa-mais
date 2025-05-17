@@ -80,3 +80,7 @@ thead {
   background-color: #c53030;
 }
 
+
+form input, form select, form textarea {
+  width: 90%;
+}
